@@ -1,0 +1,16 @@
+.cust{
+    position: relative; 
+    width:30vw;
+   }
+   .cent {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+@media only screen and (max-width: 800px) {
+    .cust{
+      position: relative; 
+      width:100%;
+   
+    }
+   }

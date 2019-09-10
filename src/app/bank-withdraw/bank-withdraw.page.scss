@@ -1,0 +1,24 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cust{
+  position: relative; 
+  width:30vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ .cent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  .cust{
+      position: relative; 
+      width:100vw;
+   
+  }
+ }

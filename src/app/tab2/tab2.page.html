@@ -1,9 +1,176 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header no-shadow no-border>
+    <div style="background-color: #000000">
+      <ion-card class="selector details"   no-margin>
+        <ion-row>
+          <ion-col col-4></ion-col>
+          <ion-col col-4 no-padding no-margin>
+            <ion-img class="cent" style="width: 160px;" src="../assets/icon/logowhite.png" class="cent"></ion-img>
+          </ion-col>
+          <ion-col col-4></ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+    <div style="background-color: transparent;width:100%;">
+      <ion-card style="border-radius: 0px !important;">
+        <ion-item lines="none">
+          <span>Oro Exchange |</span><span style="color:grey;margin-left: 7px;"><strong>{{ curr_oro | number:'1.2-2' }}</strong></span>
+          <ion-icon name="add-circle-outline" slot="end" color="dark" (click)="openForm()" *ngIf="!hideform"></ion-icon>
+          <ion-icon name="remove-circle-outline" slot="end" color="dark" (click)="openForm()" *ngIf="hideform"></ion-icon>
+        </ion-item>
+        <!-- :: StartForm -->
+        <div style="height:auto;" *ngIf="hideform">
 
-<ion-content></ion-content>
+          <ion-item>
+              <!-- <ion-label position="floating"><small>Oro </small></ion-label>
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="myTime"></ion-datetime> -->
+            <ion-label position="floating">Duration</ion-label>
+                    
+          <ion-select  [(ngModel)]="myTime" >
+            <ion-select-option value="1"> 1 hour</ion-select-option>
+            <ion-select-option value="2"> 2 hours</ion-select-option>
+            <ion-select-option value="3"> 3 hours</ion-select-option>
+            <ion-select-option value="4"> 4 hours</ion-select-option>
+            <ion-select-option value="5"> 5 hours</ion-select-option>
+            <ion-select-option value="6"> 6 hours</ion-select-option>
+            <ion-select-option value="7"> 7 hours</ion-select-option>
+            <ion-select-option value="8"> 8 hours</ion-select-option>
+            <ion-select-option value="9"> 9 hours</ion-select-option>
+            <ion-select-option value="10"> 10 hours</ion-select-option>
+            <ion-select-option value="11"> 11 hours</ion-select-option>
+            <ion-select-option value="12"> 12 hours</ion-select-option>
+            
+          </ion-select>
+          </ion-item>
+<!--               
+          <li-ionic-timepicker [(ngModel)]="myTime"
+            [inputTimeConfig]="timePickerObj" ></li-ionic-timepicker> -->
+            <ion-grid>
+              <ion-row>
+                <ion-col size="5">
+                  <ion-item>
+                    <ion-label position="floating">Oro </ion-label>
+                    
+                    <ion-input  type="number"  placeholder="Oro 0.00"  [(ngModel)]="oro"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="2"></ion-col>
+                <ion-col size="5">
+                  <ion-item>
+                    <ion-label position="floating">PHP per Oro</ion-label>
+                    <ion-input type="number"  placeholder="Php0.00"  [(ngModel)]="ppo"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                   <!-- <ion-col size="5">
+                  <ion-item>
+                    <ion-label position="floating">Duration</ion-label>
+                    <ion-datetime [(ngModel)]="availability" placeholder="h:mm:ss am/pm"   display-Format="h:mm:ss a" pickerFormat="h:mm:ss a"></ion-datetime>
+                  </ion-item>
+                </ion-col> -->
+                <ion-col size="7" >
+                  <small margin-horizontal>Conversion Rate</small><br>
+                  <ion-label margin-horizontal > 1 ORO : PHP {{ rate | number}}</ion-label>
+                </ion-col>
+                
+                <ion-col size="5">
+                  <ion-item lines="none">
+                    <ion-button style="width: 100%;" fill="outline" (click)="checkORo()">Bid
+                      <ion-spinner name="lines-small" slot="end" *ngIf="hides"></ion-spinner>
+                    </ion-button>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <!-- :: EndForm -->
+        </ion-card>
+      </div>
+      <!-- <ion-card style="box-shadow: none;">
+        <canvas id="chart0" style="width:512px;height:400px;"></canvas>
+      </ion-card> -->
+    </ion-header> 
+    
+    <ion-content>
+      <ion-progress-bar [value]="progress" buffer="0.2"></ion-progress-bar>
+      <!-- <ion-progress-bar [value]="progress"></ion-progress-bar> -->
+      <ion-item-divider style="padding-top: 3px;padding-bottom: 3px;background-color: #f1f3f4;">
+        List of Bids
+        <ion-label slot="end"></ion-label>
+        Refreshes in ( {{ timer }} )
+        <!-- <ion-spinner name="lines-small" slot="end"></ion-spinner>  -->
+        <ion-icon style="margin-right: 7px;" no-padding no-margin style="margin-right: 10px;" slot="end" color="primary" name="clipboard" (click)="openRequest()"></ion-icon>
+      </ion-item-divider>
+      <!-- ::: Start Trading List -->
+      <div style="margin:10px;" *ngIf="show">
+        <ion-label text-center>
+          <h3>
+            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </div>
+    
+        <ion-searchbar (ionChange)='onSearch()' type="number"  [(ngModel)]="searchprice" placeholder="Search by Price" ></ion-searchbar>
+     
+      <ion-list *ngFor="let data of datareading" lines="full">
+        <ion-item > 
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7.5">
+                <strong>{{ data.ppo | currency:'PHP ':true:'1.2-2' }} &nbsp;({{ data.oro | currency:'Oro ':true:'1.2-2' }})</strong><br>
+                <small>{{ data.ondate | date:'medium' }}</small>
+              </ion-col>
+              <ion-col  size="2.5">
+                <small><span *ngIf="data.status == 1">Pending</span></small>
+                <small><span *ngIf="data.status == 4">Still on sale</span></small>
+              </ion-col>
+              <ion-col text-center size="2">
+                <ion-button *ngIf="data.Msrno ==  s_msrno "  color="danger" (click)="confirmCancel(data.exc_id)">
+                  
+                  <ion-icon name="close" style="font-size: 1em;"></ion-icon>
+                </ion-button>
+                
+                <ion-button   *ngIf="data.Msrno !=  s_msrno "  color="primary"  (click)="presentPopover(data.ppo,data.oro,data.Msrno,data.exc_id)">
+                  <ion-icon name="pricetags" style="font-size: 1em;"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list> 
+   
+      <ion-item *ngIf="hide">
+        <ion-skeleton-text animated style="width: 27px; height: 27px" slot="start"></ion-skeleton-text>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-card  style="box-shadow: none;" *ngIf="!hide1">
+        <ion-card-content  style="color:black" text-center>
+          <ion-label text-center (click)="seemore()"  style="text-align: center;">See more</ion-label>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content *ngIf="noRecord" style="color:black" text-center>
+          No Result
+        </ion-card-content>
+      </ion-card>
+      <!-- :: End Trading List   -->
+    </ion-content>
+    <!-- <ion-button  fill="outline"  color="danger" (click)="presentPopover(data.ppo,data.oro,data.Msrno,data.exc_id)"> -->
+      
+      

@@ -1,0 +1,61 @@
+
+<ion-content class="contentback">
+  <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+    <ion-title padding  style="float: left;color: white;">Withdraw</ion-title>
+    <ion-title padding style="float: right;color: white;" slot="end" (click)='dismiss()'><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+  </div>
+  <br><br>
+  <div style="width: 100%;background: transparent;padding-bottom: 10px;margin-top:20px;">
+    <ion-card text-center  no-margin style="color:white;" class="selector details">
+      <ion-card-content>
+        
+        <label>Available Funds</label><br>
+        <label style="font-size: 1.5em;color:white; ">{{ afunds |  currency:'PHP ':true:'1.2-2'}}</label>
+        <div style=" width:100%;height:2px;background-color: #e9b017;">
+          
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-card color="light">
+    <ion-list lines="full">
+      <ion-item >
+        Withdrawal Method
+      </ion-item>
+    </ion-list>
+    
+    <ion-card-content no-padding>
+      <ion-list no-padding>
+        <ion-item>
+          <ion-label position="floating">Select Method</ion-label>
+          <ion-icon slot="start" color="dark" class="icon-circle-small" name="logo-bitcoin"></ion-icon>
+          
+          <ion-select style="width: 100%;"  interface="alert"  [(ngModel)]="mode" fill="full">
+            <ion-select-option value="1">Bank Deposit</ion-select-option>
+            <!-- <ion-select-option value="3">Palawan Express</ion-select-option> -->
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Select Amount</ion-label>
+          <ion-icon slot="start" color="dark" class="icon-circle-small" name="lock"></ion-icon>
+          
+          <ion-select  style="width: 100%;"   [(ngModel)]="money">
+            <ion-select-option *ngFor="let amount of amounts" value="{{amount}}">{{ amount - 100 | currency:'&#x20B1; ':true:'1.2-2' }}</ion-select-option>
+            
+          </ion-select>
+          
+        </ion-item>
+        
+      </ion-list>
+      
+    </ion-card-content>
+    <ion-card class="selector details" padding>
+      <ion-button style="width:100%;margin-top:10px;margin-bottom:10px;margin-left:5px;margin-right:7px;" color="primary" text-center (click)="withdrawProcess()">Withdraw</ion-button>
+    </ion-card>
+  </ion-card>
+  
+  
+  
+  
+</ion-content>

@@ -1,0 +1,171 @@
+<ion-header no-border no-shadow>
+    <ion-toolbar color="secondary">
+        
+        <ion-icon slot="start" name="arrow-back" (click)="dismiss()" style="font-size: 2em;margin-left: 10px;color: white;"></ion-icon>
+        <ion-title >Send Money</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+
+        <!-- <div style="background-color: transparent;margin-top:10px;" padding>
+                <ion-card style="box-shadow: none;margin-bottom: 0px;" no-margin >
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col col-4></ion-col>
+                      <ion-col col-4>
+                        <ion-img style="width: 200px;" src="../assets/icon/logowhite.png"></ion-img>
+                      </ion-col>
+                      <ion-col col-4></ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+              </div>    
+  -->
+    
+        <ion-card class="selector details" style="margin-bottom:120px;margin-top:10px;">
+    <ion-card color="tertiary" style="margin-bottom:25px;margin-top:10px;">
+        <ion-grid text-center style="margin-bottom:7px;margin-top:5px;">
+            <ion-row>
+                <ion-col size="2"></ion-col>
+                <ion-col size="8">
+                    <!-- <strong style="font-size:1.2em;color:black">Send Money</strong> -->
+                </ion-col>
+                <ion-col size="2">
+                    <!-- <ion-icon style="font-size:1.2em;" color="medium"  name="close" (click)="dismiss()" ></ion-icon> -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        
+        <ion-grid style="margin-bottom:50px;" >
+            <ion-row>
+               
+                <ion-item style="width: 100%;height:100%;" lines="none" color="tertiary" >
+                    
+                    <ion-label color="secondary" position="floating"><strong>Source Wallet</strong></ion-label>
+                    <ion-input  class="ip4"  style="padding-left:7px!important;color:black;"   disabled="true"  value="{{ currency }} ({{ displaywallet | number:'1.2-2'}})"></ion-input>
+                </ion-item>
+            </ion-row>
+            <ion-row>
+                <ion-col size="8" no-padding>
+                    <ion-item style="width: 100%;height:100%;" lines="none" no-margin  >
+                        <ion-label color="secondary" position="floating"><strong>Amount</strong></ion-label>
+                        <ion-input type="number" style="padding-left:7px!important;background:white;" color="secondary"  class="ip4"   [(ngModel)]="amt" placeholder="0" ></ion-input>
+                        <small  *ngIf="wtype=='u'" style="color:gray;">Minimum is 500 for sending PHP</small>
+                      </ion-item>
+                </ion-col>
+                <ion-col size="4" no-padding no-margin >
+                    <ion-item style="width: 100%;height:100%;" lines="none" no-margin  >
+                        <ion-label color="secondary" position="floating"> &nbsp; </ion-label>
+                        <ion-select  style="padding-left:9px!important;background:white;" interface="alert" (ionChange)='onInputTime($event.target.value)'  [(ngModel)]="wtype" color="secondary" class="ip4">
+                            <ion-select-option value="u">PHP</ion-select-option>
+                            <ion-select-option value="o">ORO</ion-select-option>
+                            <!-- <ion-select-option value="3">Palawan Express</ion-select-option> -->
+                        </ion-select> 
+                        
+                    </ion-item>   
+                    
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-item style="width: 100%;height:100%;" lines="none" color="tertiary">
+                    <ion-label color="secondary" position="floating"><strong>Send to :</strong></ion-label>
+                    <ion-input style="padding-left:7px!important;background:white;" color="secondary"  class="ip4"   [(ngModel)]="walletadd"  placeholder="Wallet Address/Username/Mobile No."></ion-input>
+                </ion-item>
+            </ion-row>
+            <ion-row>
+                    <ion-item style="width: 100%;height:100%;" lines="none" color="tertiary">
+                    <ion-label color="secondary" position="floating"><strong>Note :</strong></ion-label>
+                <ion-textarea  [(ngModel)]="note" style="padding-left:7px!important;background:white;" class="ip4" color="secondary" placeholder="What's it for ?"></ion-textarea>
+            </ion-item>
+            </ion-row>
+        </ion-grid>
+
+     
+    <!-- <div>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="5" text-center>
+                      <ion-card no-margin class="selector details">
+                        <p style="font-size: 1.2em;"><b>From</b></p>
+                        PHP<ion-input text-center style="font-size: 1.2em;" disabled="true" value="{{ amount | number:'1.2-2'}}"></ion-input>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col size="2" text-center>
+                      <ion-card no-margin class="selector details">
+                        <p style="font-size: 1.2em;color:transparent;"><b>From</b></p>
+                        <ion-icon name="swap" style="font-size: 2.4em;"></ion-icon>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col size="5" text-center>
+                      <ion-card no-margin class="selector details">
+                        <p style="font-size: 1.2em;"><b>To</b></p>
+                        ORO<ion-input text-center style="font-size: 1.2em;" disabled="true" value="{{display | number:'1.2-2'}}"></ion-input>
+                      </ion-card>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="12" text-center>
+                      <small>1 ORO = {{ rate | currency:'&#x20B1; ':true:'1.2-2'}} Available Funds</small>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+            </ion-list>
+          </div> -->
+         
+            </ion-card>
+            <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+                    <ion-button (click)="createdProcess()" color="secondary">
+                     Send <ion-icon name="arrow-forward"></ion-icon>
+                    </ion-button>
+                  </ion-fab>
+        </ion-card>
+        
+
+   
+   
+    
+    <!-- <ion-card-content>
+        <ion-item style="border-left: 3px solid #e9b017;margin-top: 10px;">
+            <ion-label position="floating">Wallet Source</ion-label>
+            <ion-select [(ngModel)]="type" (ionChange)="onChange($event)">
+                <ion-select-option value="transfer" selected>PHP wallet</ion-select-option>
+                <ion-select-option value="sendoro">Oro wallet</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <br>
+        <div style="background: transparent;padding-bottom: 10px;margin-top:20px;">
+            <ion-card text-center no-margin style="color:white;" color="white" class="selector details">
+                <ion-card-content text-center>
+                    
+                    <ion-label>{{ head }}</ion-label><br>
+                    <ion-label>{{ currency }}</ion-label><br>
+                    <span style="font-size: 1.5em;">{{ displaywallet | number:'1.2-2'}}</span>
+                    <div style=" width:100%;height:2px;background-color: #e9b017;">
+                        
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <span style="color: white;">Amount</span>
+        <ion-item  style="border-left: 3px solid #e9b017;margin-top: 10px;">
+            <ion-input [(ngModel)]="amt"></ion-input>
+        </ion-item>
+        <br>
+        <span style="color: white;">Wallet Address</span>
+        <ion-item style="border-left: 3px solid #e9b017;margin-top: 10px;">
+            <ion-input [(ngModel)]="walletadd"></ion-input>
+        </ion-item>
+    </ion-card-content> -->
+</ion-content>
+
+
+<!-- <ion-footer style="height: 50px;">
+    <ion-button (click)="createdProcess()" expand="full" disabled="{{bol}}" style="height: 100%;" no-margin no-padding color="secondary">Continue</ion-button>
+</ion-footer> -->
+

@@ -1,0 +1,85 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title padding  style="float: left;color: white;">Account</ion-title>
+      <ion-title (click)='dismiss()' slot="end" padding ><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content class="contentback">
+
+  <div style="background-color: transparent;margin-top:20px;" padding>
+    <ion-card style="box-shadow: none;margin-bottom: 20px;" no-margin >
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-4></ion-col>
+          <ion-col col-4>
+            <ion-img style="width: 200px;" src="../assets/icon/logowhite.png"></ion-img>
+          </ion-col>
+          <ion-col col-4></ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>      
+  
+  
+  <ion-card  color="light"  style="margin-top:-30px;">
+    <ion-card class="selector details" >
+      <ion-list>
+        <ion-item style="border-left: 3px solid #e9b017; margin-bottom: 5px;">
+          <ion-label position="floating">Complete Fullname</ion-label>
+          <ion-input type="text" [(ngModel)]="full" value="{{ fullname }}"></ion-input>
+          <ion-icon name="person" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Mobile Number</ion-label>
+          <ion-input type="text" [(ngModel)]="mob" value="{{ monum }}" type="number"></ion-input>
+          <ion-icon name="phone-portrait" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Email Address</ion-label>
+          <ion-input type="text" [(ngModel)]="emadd" value="{{ email }}"></ion-input>
+          <ion-icon name="mail" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Select Bank</ion-label>
+          <ion-select placeholder="{{ bankname }}" ok-text="Okay" cancel-text="Cancel" [(ngModel)]="bname">
+            <ion-select-option value="BDO">BDO</ion-select-option>
+            <ion-select-option value="BPI">BPI</ion-select-option>
+            <ion-select-option value="Eastwest Bank">Eastwest Bank</ion-select-option>
+            <ion-select-option value="Security Bank">Security Bank</ion-select-option>
+          </ion-select>
+          <ion-icon name="home" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Account number</ion-label>
+          <ion-input type="text" [(ngModel)]="anum" value="{{ accountno }}" type="number"></ion-input>
+          <ion-icon name="unlock" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Account name</ion-label>
+          <ion-input type="text" [(ngModel)]="aname" value="{{ accountname }}"></ion-input>
+          <ion-icon name="lock" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Bitcoin Address</ion-label>
+          <ion-input type="text" [(ngModel)]="btc" value="{{ bitcoin }}"></ion-input>
+          <ion-icon name="logo-bitcoin" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item style="border-left: 3px solid #e9b017;  margin-bottom: 5px;">
+          <ion-label position="floating">Payout Mode</ion-label>
+          <ion-select placeholder="{{ display }}" ok-text="Okay" cancel-text="Cancel" [(ngModel)]="payment">
+            <ion-select-option value="1">Bank Deposit</ion-select-option>
+            <ion-select-option value="3">Palawan Express</ion-select-option>
+          </ion-select>
+          <ion-icon name="barcode" slot="end"></ion-icon>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list lines="none" padding no-margin class="is-list-buttons" style="margin-left: 150px;background-color: transparent;" (click)="update()">
+        <ion-item color="primary" button detail="true">
+          <b style="font-family: Roboto, sans-serif;">Save Data</b>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-card>
+  
+</ion-content>

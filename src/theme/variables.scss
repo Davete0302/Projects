@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #e9b017;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -12,7 +12,7 @@
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
-  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary: black;
   --ion-color-secondary-rgb: 12, 209, 232;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -20,7 +20,7 @@
   --ion-color-secondary-tint: #24d6ea;
 
   /** tertiary **/
-  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary: #ffffff;
   --ion-color-tertiary-rgb: 112, 68, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -28,7 +28,7 @@
   --ion-color-tertiary-tint: #7e57ff;
 
   /** success **/
-  --ion-color-success: #10dc60;
+  --ion-color-  : #10dc60;
   --ion-color-success-rgb: 16, 220, 96;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
@@ -60,7 +60,7 @@
   --ion-color-dark-tint: #383a3e;
 
   /** medium **/
-  --ion-color-medium: #989aa2;
+  --ion-color-medium: #999DA0;
   --ion-color-medium-rgb: 152, 154, 162;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
@@ -74,4 +74,28 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --ion-color-white: #ffffff;
+
+  --ion-color-puti: #ffffff;
+  --ion-color-custom: linear-gradient(to top, #e9b017, #cd9c18, #b28819, #977418, #7e6117, #6b5316, #594615, #483913, #382d11, #29220f, #1c170a, #0a0804) !important;
 }
+
+
+.toolbarback{
+  --background: linear-gradient(to top, #070605, #111010, #181717, #1e1e1e, #242424) !important;
+  }
+  .contentback{
+  --background: linear-gradient(to top, #e9b017, #cd9c18, #b28819, #977418, #7e6117, #6b5316, #594615, #483913, #382d11, #29220f, #1c170a, #0a0804) !important;
+  //--background: linear-gradient(to top, #f0da64, #aea44f, #73703b, #404026, #141411) !important;
+  }
+  ion-popover{
+    ion-backdrop{
+    opacity: 0.5 !important;
+    }
+    .popover-wrapper{
+    .popover-content{
+    width:80vw;
+    max-width:700px;
+    }
+    }}
+  

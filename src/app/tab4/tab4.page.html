@@ -1,0 +1,71 @@
+<ion-content>
+    <div style="background-color: #000000">
+        <ion-card class="selector details"  no-margin>
+    
+            <ion-row>
+              <ion-col col-4></ion-col>
+              <ion-col col-4 no-padding no-margin>
+                <ion-img class="cent" style="width: 160px;" src="../assets/icon/logowhite.png"></ion-img>
+              </ion-col>
+              <ion-col col-4></ion-col>
+            </ion-row>
+    
+        </ion-card>
+      </div>
+  
+  <ion-item lines="none" style="margin-bottom: 5px;margin-top: 5px;">
+    <ion-avatar>
+      <ion-img src="assets/imgs/user.png">
+      </ion-img>
+    </ion-avatar>
+    <ion-label style="margin-left: 20px;"><strong>{{ s_uname | uppercase }}</strong></ion-label>
+    <ion-icon name="star-outline" style="margin-right: 5px;" color="primary"></ion-icon>   
+  </ion-item>
+  
+  <div  style="margin-right: 16px;padding-top:5px;padding-bottom:5px;width: 100%;background-color: #f1f3f4;">
+    <span style="width: 100%;margin-left: 16px;color: grey;" ><small><strong>Profile</strong></small></span>
+  </div>
+  <div style="margin-right: 16px;width: 100%;">
+    
+    <ion-list lines="full" no-margin no-padding>
+    
+      <ion-item (click)="openAccount()">
+        <ion-icon name="Person" slot="start"></ion-icon> 
+        <span>Account</span>  
+        <ion-icon name="arrow-dropright" slot="end"></ion-icon>   
+      </ion-item>
+      <ion-item (click)="openNotif()">
+          <ion-icon name="notifications" slot="start"></ion-icon>
+          <span>Notifications</span> 
+          <ion-badge *ngIf="flag" slot="end"  color="danger">{{ countNotif }}</ion-badge> 
+          <ion-icon name="arrow-dropright" slot="end"></ion-icon>   
+        </ion-item>
+       
+    </ion-list>
+    
+    <div  style="margin-right: 16px;padding-top:5px;padding-bottom:5px;width: 100%;background-color: #f1f3f4;">
+      <span style="width: 100%;margin-left: 16px;color: grey;" ><small><strong>Security</strong></small></span>
+    </div>
+    <ion-list lines="full">
+      <div style="margin-right: 16px;width: 100%;">
+        <ion-item (click)="openCpass()">
+          <ion-icon name="lock" slot="start"></ion-icon> 
+          <span>Change Password</span>  
+          <ion-icon name="arrow-dropright" slot="end"></ion-icon>   
+        </ion-item>
+        
+        <ion-item (click)="changePin()">
+          <ion-icon name="lock" slot="start"></ion-icon> 
+          <span>Change Pin</span>  
+          <ion-icon name="arrow-dropright" slot="end"></ion-icon>   
+        </ion-item>
+        
+        <ion-item lines="full" (click)="logout()">
+          <ion-icon name="exit" slot="start"></ion-icon> 
+          <span>Logout</span>  
+          <ion-icon name="arrow-dropright" slot="end"></ion-icon>   
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

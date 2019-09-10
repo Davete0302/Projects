@@ -1,0 +1,103 @@
+
+<ion-content class="contentback">
+  
+  <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+    
+    <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+      <ion-title padding  style="float: left;color: white;">Send</ion-title>
+      <ion-title padding style="float: right;color: white;" slot="end" (click)='dismiss()'><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+    </div>
+    <ion-card text-center  no-margin style="color:white;" class="selector details">
+      <ion-card-content>
+        <br><br>
+        <ion-label>Available Funds</ion-label><br>
+        <span style="font-size: 1.5em;">{{availablefunds | currency:'PHP ':true:'1.2-2'}}</span>
+        <div style=" width:100%;height:2px;background-color: #e9b017;">
+          
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+  <div><ion-card color="light">
+    
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" [(ngModel)]="username"> </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Fullname</ion-label>
+            <ion-input type="text" [(ngModel)]="fname"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Mobile</ion-label>
+            <ion-input type="number"  [(ngModel)]="mobile"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Enter Amount</ion-label>
+            <ion-input type="number"  [(ngModel)]="amount"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Transaction Password</ion-label>
+            <ion-input type="password"  [(ngModel)]="password" ></ion-input>
+            
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-card class="selector details" >
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Enter Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    
+    
+    <div>
+      <ion-card class="selector details">
+        <p style="color: black;font-size:0.9em;margin-left: 10px;">Don't have Transaction Password <a  style="color: #e9b017;font-size:1.0em;" (click)=" gotoPass()">Click here to Create</a></p>
+        <ion-button style="width:100%;margin-left: 7px;margin-right: 7px;" color= "primary"  text-center (click)="createdProcess()">Send</ion-button>
+      </ion-card>
+    </div>
+    
+  </ion-card>  </div>
+  
+</ion-content>

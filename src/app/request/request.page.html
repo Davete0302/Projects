@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title padding  style="float: left;color: white;">Bids</ion-title>
+      <ion-title (click)='dismiss()' slot="end" padding ><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content class="contentback">
+  
+  <!-- *ngFor="let data of datareading" -->
+  <br><br>
+  
+  <br>
+  <div style="width: 100%;">
+    
+    <ion-card color="light" style="margin-left: 7px;margin-right: 7px;" no-margin no-padding>
+      <ion-item-divider no-margin >
+        <ion-grid >
+          <ion-row>
+            
+            <ion-col size=4></ion-col>
+            <ion-col size=4><strong>Request List</strong></ion-col>
+            <ion-col size=4></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item-divider>
+      <ion-card-header color="light">
+        <ion-grid text-center color="light" >
+          <ion-row color="light" >
+            
+            <ion-col size=3><strong>Date</strong></ion-col>
+            <ion-col size=3><strong>Oro</strong></ion-col>
+            <ion-col size=3><strong>Price</strong></ion-col>
+            <ion-col size=3><strong>Action</strong></ion-col>
+          </ion-row>
+          
+        </ion-grid>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngFor="let data of datareading" lines="none">
+          
+          <ion-item >
+            <ion-grid text-center >
+              <ion-row>
+                
+                <ion-col size=3 style="font-size: 0.8em;">{{data.ondate | date:'mediumDate'}}</ion-col>
+                <ion-col size=3 style="font-size: 0.8em;">{{data.oro}}</ion-col>
+                <ion-col size=3 style="font-size: 0.8em;">{{data.ppo}}</ion-col>
+                <!-- </ion-icon> <ion-icon name="eye" color="primary" > -->
+                <ion-col size=3 ><strong style="color:red;" (click)="confirmCancel(data.exc_id)">X</strong></ion-col>
+                </ion-row>
+                
+              </ion-grid>
+            </ion-item>
+            
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+    
+  </ion-content>
+  

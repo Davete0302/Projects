@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title padding  style="float: left;color: white;">QR Payment</ion-title>
+      <ion-title (click)='dismiss()' slot="end" padding ><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content class="contentback">
+  <div style="width: 100%;background: transparent;padding-bottom: 10px;margin-bottom: 20px;">
+    <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+      
+    </div>
+  </div>
+  <br><br>
+  <ion-card class="selector details">
+    <ion-card-header>
+      <div style="text-align: center;font-size: 1.8em;"><span>Payment made easier via CoinDeOro QR Code</span></div>
+    </ion-card-header>
+    <ion-card-content text-center>
+      <ion-spinner name="crescent" *ngIf="hide"></ion-spinner>
+      <ion-card *ngIf="createdCode" class="selector details" padding>
+        <ngx-qrcode [qrc-value]="createdCode"  style="background: transparent;"></ngx-qrcode>
+        <!-- <ion-card-content text-center>
+          <br>
+          <span style="color: white;">SCAN QR CODE</span>
+          <ion-item-divider color="transparent"></ion-item-divider>
+        </ion-card-content> -->
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-button (click)='scanCode()'></ion-button>
+    <ion-card *ngIf="scannedCode">
+      <ion-card-content>
+        <p>{{ scannedCode }}</p>
+      </ion-card-content>
+    </ion-card> -->
+  </ion-content>
+  

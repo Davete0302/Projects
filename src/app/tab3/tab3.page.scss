@@ -1,1 +1,54 @@
 
+.larger {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+ion-content{
+  background: linear-gradient(to top, #e9b017, #cd9c18, #b28819, #977418, #7e6117, #6b5316, #594615, #483913, #382d11, #29220f, #1c170a, #0a0804) !important;;
+}z
+.custom-skeleton ion-skeleton-text {
+  line-height: 13px;
+}
+
+.custom-skeleton ion-skeleton-text:last-child {
+  margin-bottom: 5px;
+}
+.cust{
+  position: relative; 
+  width:30vw;
+  height: 40vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ .cent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 800px) {
+  .cust{
+      position: relative; 
+      width:80vw;
+      height:45%;
+  }
+  .can{
+    position: relative; 
+    height:50%;
+     width:80vw
+   }
+ }
+ .can{
+  position: relative; 
+ height:80vh;
+   width:60vw
+
+ }
+ .cent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

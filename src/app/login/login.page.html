@@ -1,0 +1,61 @@
+<ion-content text-center class="contentback" >
+  <ion-card class="selector details" style="margin-top: 20px;">
+    <ion-card-header>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <ion-img style="width: 190px;" src="../assets/icon/logowhite.png" class="cent"></ion-img>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+    </ion-card-header>
+    <div class="is-hero">
+      <div class="is-image-container" padding-top>
+        <!-- <img src="assets/imgs/logo-dark.png" /> -->
+      </div>
+    </div>
+    <div class="cent">
+    <ion-card color="light"  class="cust" style="margin-top:0px;margin: 0 auto; float: none;margin-bottom: 10px;" padding>
+      <ion-card-title style="font-size: 1.5em;color: black ;" padding-vertical>Welcome back members</ion-card-title>
+      
+      <ion-list lines="none"  class="is-list-transparent" >
+        
+        <ion-item style="border-left: 3px solid #e9b017;">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" [(ngModel)]="txtUsername"></ion-input>
+        </ion-item>
+        
+        <ion-item style="border-left: 3px solid #e9b017;margin-top:10px;" >
+          <ion-icon name="lock" slot="start"></ion-icon>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [type]="passwordType || 'password'" [(ngModel)]="txtPassword"></ion-input>
+          <ion-button fill="clear" size="default" slot="end" (click)="togglePasswordType()">
+            <ion-icon [name]="(passwordType === 'text') ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+      <div style="margin-top:10px;">
+        <ion-list lines="none" class="is-list-buttons is-list-transparent" (click)="login()" style="background-color: transparent;">
+          <ion-item color="primary" button detail="true"  style="opacity: 1 !important;">
+            <ion-label>Login to Account</ion-label>
+          </ion-item>
+        </ion-list>
+        
+        <ion-list lines="none" class="is-list-buttons is-list-transparent" no-margin style="background-color: transparent;">
+          <ion-item color="secondary" button detail="true" [routerLink]="['/signup']" (click)="reset()">
+            <ion-label>Create CoinDeOro Account</ion-label>
+          </ion-item>
+        </ion-list>
+        
+        <div padding-horizontal>
+          <p class="is-login-element-dark-contrast">
+            Forget password? <a>Reset Password</a>
+          </p>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+  </ion-card>
+
+</ion-content>

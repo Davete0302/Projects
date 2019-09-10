@@ -1,0 +1,114 @@
+.icon-circle, .icon-circle-large, .icon-circle-small{
+    position: relative;
+    display: inline-block;
+    margin: -1px;
+    /*padding: 16px;*/
+    width: 45px; /* 60*/
+    height: 45px; 
+    font-size:40px; 
+    -moz-border-radius:20%;
+    -webkit-border-radius:20%;
+    border-radius: 20%;
+    border: 0px solid #ebebeb;
+    background: rgb(0, 161, 225); /*#ececec;ebebeb*/
+    color: #fff;
+    text-align:center;
+    /*vertical-align: middle;*/
+}
+
+.icon-circle-large {
+    width: 30px;
+    height: 30px;
+    font-size: 28px; /* 64, originally 60 */
+    border: 1px solid transparent;
+    background: #e9b017;
+    padding: 10px;
+    color: white;
+    text-emphasis: none;
+    border-radius: 50%;
+}
+
+/*.icon-circle i, .icon-circle-small i, .icon-circle-large i { vertical-align: middle; }*/
+
+.icon-circle-outline {
+    border: 1px solid rgb(0, 161, 225);
+    background: transparent;
+    color: rgb(0, 161, 225);
+    /*color: #8a6de9;*/
+}
+
+.item-icon-circle {
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px; 
+    /* width and height can be anything, as long as they're equal */
+    
+    text-align:center;
+    color:white;
+    /* font size here wont work */
+    
+}
+
+.item-icon-circle i {
+    font-size:60px;
+}
+
+
+body {font-family: Roboto, Helvetica, Arial, sans-serif;}
+
+
+
+/*
+letter-spacing: 1px;
+overflow: hidden;
+
+
+perspective-origin: 40px 40px;
+transform-origin: 40px 40px;
+background: rgb(0, 161, 225) none repeat scroll 0% 0% / auto padding-box border-box;
+*/
+
+.bg-circle-alt {
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px; 
+}
+
+.firstlayer{
+    
+    // --background: 
+    background: linear-gradient(to top, #e9b017, #cd9c18, #b28819, #977418, #7e6117, #6b5316, #594615, #483913, #382d11, #29220f, #1c170a, #0a0804) !important;
+    // background-color:#22b99c;
+    // background: linear-gradient(to top, #e5ad18, #ab7e1d, #73541b, #3d2d15, #070605) !important;
+    
+}
+
+.secondlayer{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.larger {
+    font-size: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cust{
+    font-size: 1.6em;color:black;
+    text-align: center;
+   }
+@media only screen and (max-width: 800px) {
+    .cust{
+        font-size: 1.6em;color:black;
+        float:right;
+     
+    }
+   }

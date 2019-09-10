@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+     
+     <ion-grid>
+       <ion-row>
+         
+         <ion-col size="3" >
+          <ion-buttons  style="text-align:left;font-size:16px;color:White;" [routerLink]="['/tabs/tab3']"><ion-icon name="close" style="font-size: 1.3em;"></ion-icon>
+            </ion-buttons>
+           
+         </ion-col>
+         <ion-col size="6" text-center style="font-size:17px;color:White;">Download Report</ion-col>
+         <ion-col size="3">
+          <ion-label style="text-align: right;font-size:16px;color:White;" (click)="getter()" *ngIf="!disabled">Confirm
+          </ion-label>
+          <ion-label style="text-align: right;font-size:16px;color:grey;"  *ngIf="disabled">Confirm
+          </ion-label>
+           
+        </ion-col>
+       </ion-row>
+     </ion-grid>
+  
+     
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+
+      <img src="assets/imgs/pdf.png"   style="margin-top: 20px;height:150px !important;width: 150px;"/>
+    <Br>
+    <ion-item><ion-label>No. of Days</ion-label>
+      
+        <ion-button expand="block" style="float:right; border-radius: 25px ! important;" color="primary" (click)="presentActionSheet()">Select No. of Days</ion-button>
+    </ion-item>
+    <ion-item><ion-label>From</ion-label>
+      <ion-datetime displayFormat="DDDD MMM D, YYYY" style="float:right;" [(ngModel)]="toDate" (ionChange)="events()" disabled></ion-datetime>
+    
+  </ion-item>
+  <ion-item><ion-label>To</ion-label>
+    <ion-datetime displayFormat="DDDD MMM D, YYYY" style="float:right;" [(ngModel)]="myDate" (ionChange)="events()" disabled></ion-datetime>
+  </ion-item>
+  </ion-content>
+  

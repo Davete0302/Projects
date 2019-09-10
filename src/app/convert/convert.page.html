@@ -1,0 +1,90 @@
+
+  <ion-content class="contentback">
+      <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+
+        <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+            <ion-title padding  style="float: left;color: white;">Convert</ion-title>
+            <ion-title padding style="float: right;color: white;" slot="end" (click)='dismiss()'><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+            </div>
+      <ion-card text-center  no-margin style="color:white;" class="selector details">
+        <ion-card-content>
+          <br><br>
+          <ion-label>Available Funds</ion-label><br>
+          <span style="font-size: 1.5em;">{{ afunds | currency:'PHP ':true:'1.2-2'}}</span>
+          <div style=" width:100%;height:2px;background-color: #e9b017;">
+
+            </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div><ion-card color="light">
+    <div>
+      <ion-card class="selector details">
+          <ion-list lines="none">
+              <ion-item  style="border-left: 3px solid #e9b017;">
+              <ion-label position="floating">Enter Amount</ion-label>
+              <ion-input type="number"  [(ngModel)]="amount"></ion-input>
+              <ion-icon color="dark" slot="end" name="logo-bitcoin"></ion-icon>
+            </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-card class="selector details">
+          <ion-list lines="none">
+              <ion-item  style="border-left: 3px solid #e9b017;">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password"  [(ngModel)]="password" ></ion-input>
+              <ion-icon color="dark" slot="end" name="lock"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </div>
+    
+    <div>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="5" text-center>
+                <ion-card no-margin class="selector details">
+                  <p style="font-size: 1.2em;"><b>From</b></p>
+                  PHP<ion-input text-center style="font-size: 1.2em;" disabled="true" value="{{ amount | number:'1.2-2'}}"></ion-input>
+                </ion-card>
+              </ion-col>
+              <ion-col size="2" text-center>
+                <ion-card no-margin class="selector details">
+                  <p style="font-size: 1.2em;color:transparent;"><b>From</b></p>
+                  <ion-icon name="swap" style="font-size: 2.4em;"></ion-icon>
+                </ion-card>
+              </ion-col>
+              <ion-col size="5" text-center>
+                <ion-card no-margin class="selector details">
+                  <p style="font-size: 1.2em;"><b>To</b></p>
+                  ORO<ion-input text-center style="font-size: 1.2em;" disabled="true"></ion-input>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12" text-center>
+                  <small>1 ORO =  Available Funds</small>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+
+      </ion-list>
+    </div>
+    <div>
+        <ion-card class="selector details" padding>
+            <ion-button style="width:100%;" color="primary" *ngIf="flag"  text-center (click)="convertProcess()">Send</ion-button>
+                  
+        </ion-card>
+      </div>
+   
+
+  </ion-card>
+</div>
+  </ion-content>
+  

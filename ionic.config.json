@@ -1,5 +1,7 @@
 {
   "name": "CoinDeOro",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

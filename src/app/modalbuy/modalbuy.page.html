@@ -1,0 +1,79 @@
+<ion-content>
+
+  <ion-item-divider  style="background-color: #f1f3f4;padding-top:5px;padding-bottom:5px;">
+    <span>Oro Trade</span>
+  </ion-item-divider>
+  <div style="background-color: #f1f3f4;">
+    <ion-card text-center  no-margin style="color:black;" class="selector details">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-label position="floating">Oro</ion-label>
+            <ion-input disabled="true" value="{{ oros | number:'1.2-2'}}"></ion-input>
+            
+          </ion-col>
+          <ion-col size="6">
+            <ion-label position="floating">Price Per Oro</ion-label>
+            <ion-input disabled="true" value="{{ ppos | currency:'₱ ':true:'1.2-2'   }}"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+    </ion-card>
+  </div>
+  <div style=" width:100%;height:2px;background-color: #f1f3f4;">
+    
+  </div>
+  <ion-card text-center  no-margin style="color:black;" class="selector details">
+    <ion-card-content>
+      
+      <ion-label> PHP Wallet </ion-label><br>
+      <span style="font-size: 1.5em;">{{ availablefunds | currency:'PHP ':true:'1.2-2'}}</span>
+      <div style=" width:100%;height:2px;background-color: #f1f3f4;">
+        
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+  
+  <div>
+    <ion-list lines="none">
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5" text-center>
+            <ion-card no-margin class="selector details">
+              <p style="font-size: 1.2em;"><b>Enter Oro</b></p>
+              <ion-input type="number" [(ngModel)]="oro_amount" (ionChange)='onInputTime($event.target.value)'  style="font-size: 1.2em;"  ></ion-input>
+              <div style=" width:100%;height:2px;background-color: #e9b017;margin-left: 7px;">
+                
+              </div>
+            </ion-card>
+          </ion-col>
+          
+          <ion-col size="2" text-center>
+            <ion-card no-margin class="selector details">
+              <p style="font-size: 1.2em;color:transparent;"><b>From</b></p>
+              <ion-icon name="swap" style="font-size: 2.4em;"></ion-icon>
+            </ion-card>
+          </ion-col>
+          <ion-col size="5" text-center>
+            <ion-card no-margin class="selector details">
+              <p style="font-size: 1.2em;"><b>Php Equivalent</b></p>
+        <ion-input  text-center style="font-size: 1.2em;" disabled="true" [(ngModel)]="result2"  value="{{ result | number:'1.2-2'}}"></ion-input>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid>
+    </ion-list>
+    <ion-grid><ion-row>
+      <ion-col size="6"  >
+        <ion-button  style="width:100%;" color="success"  (click)="buy()">OK</ion-button>
+      </ion-col>
+      <ion-col size="6" >
+        <ion-button  style="width:100%;" color="danger" (click)="close()">Cancel</ion-button>
+      </ion-col>
+    </ion-row></ion-grid>
+  </div>
+</ion-content>

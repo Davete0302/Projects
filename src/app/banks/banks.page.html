@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title [routerLink]="['/bank-withdraw']" slot="end" padding><ion-icon name="close" style="font-size:2em;"></ion-icon></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h2 margin>Select Bank</h2>
+  <ion-list *ngFor="let bank of banks">
+    <ion-item (click)="reroute(bank)">
+      <ion-label>{{ bank }}</ion-label>
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-content class="contentback">
+  <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+    
+    
+    <div style="width: 100%;background: transparent;padding-bottom: 10px;">
+      <ion-title padding  style="float: left;color: white;">Convert</ion-title>
+      <ion-title padding style="float: right;color: white;" slot="end" (click)='dismiss()'><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+    </div>
+    <ion-card text-center  no-margin style="color:white;" class="selector details">
+      <ion-card-content>
+        <br><br>
+        <ion-label>Topup Funds</ion-label><br>
+        <span style="font-size: 1.5em;">{{ wallet | currency:'PHP ':true:'1.2-2'}}</span>
+        <div style=" width:100%;height:2px;background-color: #e9b017;">
+          
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div><ion-card color="light">
+    <div>
+      <ion-card class="selector details">
+        <ion-list lines="none">
+          <ion-item style="border-left: 3px solid #e9b017;">
+            <ion-label position="floating">Wallet Source </ion-label>
+            <ion-input type="number"  value="{{  wallet  }}" [(ngModel)]="amount"></ion-input>
+            <ion-icon color="dark" slot="end" name="logo-bitcoin"></ion-icon>
+          </ion-item>
+        </ion-list>
+        
+        <p style="text-align: justify;">All funds that is being subscribes are to be considered as donation funds. 
+          This donated fund shall be using to propel ongoing and upcoming projects that is being funded by Cirfund.Org Organization. </p>
+          
+          <ion-radio-group *ngFor='let report of referral' [(ngModel)]="dayid">
+            
+            
+            <ion-radio  slot="start"  value="{{  report.day_id }}" > </ion-radio>
+            <ion-label style="font-size:15px;margin-left:5px;">({{ report.day_name }}) Daily Incentive Rate: {{ report.day_percent }}%</ion-label><br>
+            
+            
+          </ion-radio-group>
+        </ion-card>
+      </div>
+      
+      <div>
+        <ion-card class="selector details" padding>
+          <ion-button *ngIf="flag" color = "primary" style="width: 100%;margin-bottom: 15px;margin-top: 15px;"  text-center (click)="escrowProcess()">Send</ion-button>
+          
+        </ion-card>
+      </div>
+    </ion-card>
+  </div>
+  
+</ion-content>

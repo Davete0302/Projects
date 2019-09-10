@@ -1,9 +1,120 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div style="background-color: #000000">
+    <ion-card class="selector details"   no-margin>
+      <ion-row>
+        <ion-col col-4></ion-col>
+        <ion-col col-4 no-padding no-margin>
+          <ion-img class="cent" style="width: 160px;" src="../assets/icon/logowhite.png" class="cent"></ion-img>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+<div *ngIf="!breferral && !bEscrow && !bIncome && !bWithdrawal && !bWallet && !bConvert && !bSold  && !bsend && !bBought">
+  <img src="assets/imgs/noresults.png"   style="margin-top: 100px;"/>
+</div>
+  <div class="ion-padding">
+    <ion-card class="cust" *ngIf="breferral">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Referral</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/referral']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content>
+        <canvas class="can"  #barCanvas  ></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bEscrow" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Escrow</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/investment-summary']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content >
+        <canvas #trial class="can"></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bIncome" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Income Summary</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/wallet']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content >
+        <canvas #lineCanvas1 class="can"></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bWithdrawal" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Withdrawal</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/withdrawal']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas class="can"></canvas>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card *ngIf="bWallet" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Wallet Summary</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/incomesummary']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content >
+        <canvas #lineCanvas class="can"></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bConvert" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Convert</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/convert-history']"> View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content>
+        
+        <canvas #doughnutCanvas1 class="can"></canvas>
+        <!-- <ion-spinner name="bubbles" style="margin-top:30px;"></ion-spinner> -->
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bSold" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Sold ORO</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/sold-oro']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content>
+        
+        <canvas #trade class="can" ></canvas>
+        
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bBought" class="cust">
+      <ion-card-header color="secondary">
+        <ion-label> <span style="float:left;"><strong>Bought ORO</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/boughoro']">View Details</span></ion-label>  
+        <br>
+        
+      </ion-card-header>
+      <ion-card-content>
+        
+        <canvas #exchange class="can"></canvas>
+        
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="bsend" class="cust">
+        <ion-card-header color="secondary">
+          <ion-label> <span style="float:left;"><strong>Send ORO</strong></span><span style="float:right;color:#e9b017;" [routerLink]="['/send-report']">View Details</span></ion-label>  
+          <br>
+          
+        </ion-card-header>
+        <ion-card-content>
+          
+          <canvas #sendoro class="can"></canvas>
+          
+        </ion-card-content>
+      </ion-card>
+    
+  </div>
+</ion-content>

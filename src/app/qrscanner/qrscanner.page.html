@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+      <ion-title>QR Scanner</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  a
+    <ion-card *ngIf="scannedCode">
+      <ion-card-content>
+        <p>{{ scannedCode }}</p>
+      </ion-card-content>
+    </ion-card> 
+
+</ion-content>

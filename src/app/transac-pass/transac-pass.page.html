@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar color="secondary" >
+      <ion-title (click)="openSendOro()"><ion-icon name="close" style="font-size: 1.3em;"></ion-icon></ion-title>
+      </ion-toolbar>
+</ion-header>
+
+
+    <ion-content class="contentback">
+      
+  
+  <ion-card color="light">
+    <ion-item-divider color="primary">
+     <h6>  Create Password </h6>
+    </ion-item-divider> 
+      <ion-card class="selector details" padding >
+   <ion-list>
+          <ion-item  style="border-left: 3px solid #e9b017;">
+              <ion-label position="floating">Enter Login Password</ion-label>
+            
+                <ion-input type="password"  [(ngModel)]="lpass"></ion-input>
+                <ion-icon slot="end" name="lock"></ion-icon>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+              <ion-item  style="border-left: 3px solid #e9b017;">
+                  <ion-label position="floating">Enter Transaction Password</ion-label>
+                  <ion-input type="password"  [(ngModel)]="tpass" ></ion-input>
+                  <ion-icon slot="end" name="lock"></ion-icon>
+                </ion-item>
+              </ion-list>
+              <ion-list>
+                <ion-item  style="border-left: 3px solid #e9b017;">
+                    <ion-label position="floating">Confirm Transaction Password</ion-label>
+                    <ion-input  type="password"  [(ngModel)]="ctpass"></ion-input>
+                    <ion-icon slot="end" name="lock"></ion-icon>
+                  </ion-item>
+                </ion-list>
+                <ion-button style="width: 100%;margin-top: 10px;" color="primary"  text-center (click)="generatePass()">Send</ion-button>
+                
+      </ion-card>
+  </ion-card>
+
+
+</ion-content>
